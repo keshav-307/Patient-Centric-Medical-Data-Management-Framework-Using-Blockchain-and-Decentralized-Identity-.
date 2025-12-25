@@ -1,0 +1,318 @@
+[
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "patientAddress",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "did",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "PatientRegistered",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "patientAddress",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "PatientUpdated",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"name": "didToAddress",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_patientAddress",
+					"type": "address"
+				}
+			],
+			"name": "getPatient",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "string",
+							"name": "did",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "name",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "dateOfBirth",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "medicalProfile",
+							"type": "string"
+						},
+						{
+							"internalType": "address",
+							"name": "walletAddress",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "registrationDate",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "isActive",
+							"type": "bool"
+						}
+					],
+					"internalType": "struct PatientRegistry.Patient",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "_did",
+					"type": "string"
+				}
+			],
+			"name": "getPatientByDID",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "string",
+							"name": "did",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "name",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "dateOfBirth",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "medicalProfile",
+							"type": "string"
+						},
+						{
+							"internalType": "address",
+							"name": "walletAddress",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "registrationDate",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "isActive",
+							"type": "bool"
+						}
+					],
+					"internalType": "struct PatientRegistry.Patient",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getTotalPatients",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_patientAddress",
+					"type": "address"
+				}
+			],
+			"name": "isPatientRegistered",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "patientAddresses",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"name": "patients",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "did",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "name",
+					"type": "string"
+				},
+				{
+					"internalType": "uint256",
+					"name": "dateOfBirth",
+					"type": "uint256"
+				},
+				{
+					"internalType": "string",
+					"name": "medicalProfile",
+					"type": "string"
+				},
+				{
+					"internalType": "address",
+					"name": "walletAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "registrationDate",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "isActive",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "_did",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_name",
+					"type": "string"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_dateOfBirth",
+					"type": "uint256"
+				},
+				{
+					"internalType": "string",
+					"name": "_medicalProfile",
+					"type": "string"
+				}
+			],
+			"name": "registerPatient",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "_medicalProfile",
+					"type": "string"
+				}
+			],
+			"name": "updatePatientProfile",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]

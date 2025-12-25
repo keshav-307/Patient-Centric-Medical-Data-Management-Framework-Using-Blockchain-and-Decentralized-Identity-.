@@ -1,0 +1,591 @@
+[
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_patientRegistry",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_providerRegistry",
+					"type": "address"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "requestId",
+					"type": "uint256"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "provider",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "recordId",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "AccessDenied",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "requestId",
+					"type": "uint256"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "provider",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "recordId",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "AccessGranted",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "requestId",
+					"type": "uint256"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "provider",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "patient",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "recordId",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "AccessRequested",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "provider",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "recordId",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "AccessRevoked",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "string",
+					"name": "recordId",
+					"type": "string"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "patient",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "ipfsHash",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "RecordUploaded",
+			"type": "event"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "accessRequests",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "requestId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "providerAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "patientAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "string",
+					"name": "purpose",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "recordId",
+					"type": "string"
+				},
+				{
+					"internalType": "uint256",
+					"name": "requestDate",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "isApproved",
+					"type": "bool"
+				},
+				{
+					"internalType": "bool",
+					"name": "isRejected",
+					"type": "bool"
+				},
+				{
+					"internalType": "uint256",
+					"name": "expiryDate",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "allRecordIds",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_providerAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "string",
+					"name": "_recordId",
+					"type": "string"
+				}
+			],
+			"name": "checkAccess",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_requestId",
+					"type": "uint256"
+				}
+			],
+			"name": "denyAccess",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getMyAccessRequests",
+			"outputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "",
+					"type": "uint256[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getMyRecords",
+			"outputs": [
+				{
+					"internalType": "string[]",
+					"name": "",
+					"type": "string[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "_recordId",
+					"type": "string"
+				}
+			],
+			"name": "getRecord",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "string",
+							"name": "recordId",
+							"type": "string"
+						},
+						{
+							"internalType": "address",
+							"name": "patientAddress",
+							"type": "address"
+						},
+						{
+							"internalType": "string",
+							"name": "ipfsHash",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "recordType",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "uploadDate",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "exists",
+							"type": "bool"
+						}
+					],
+					"internalType": "struct MedicalRecordManager.MedicalRecord",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getTotalRecords",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_requestId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_accessDurationDays",
+					"type": "uint256"
+				}
+			],
+			"name": "grantAccess",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"name": "hasAccess",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "patientRecords",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "patientRegistry",
+			"outputs": [
+				{
+					"internalType": "contract IPatientRegistry",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "providerRegistry",
+			"outputs": [
+				{
+					"internalType": "contract IProviderRegistry",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"name": "records",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "recordId",
+					"type": "string"
+				},
+				{
+					"internalType": "address",
+					"name": "patientAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "string",
+					"name": "ipfsHash",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "recordType",
+					"type": "string"
+				},
+				{
+					"internalType": "uint256",
+					"name": "uploadDate",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "exists",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_patientAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "string",
+					"name": "_recordId",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_purpose",
+					"type": "string"
+				}
+			],
+			"name": "requestAccess",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "requestCounter",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_providerAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "string",
+					"name": "_recordId",
+					"type": "string"
+				}
+			],
+			"name": "revokeAccess",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "_recordId",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_ipfsHash",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_recordType",
+					"type": "string"
+				}
+			],
+			"name": "uploadMedicalRecord",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]

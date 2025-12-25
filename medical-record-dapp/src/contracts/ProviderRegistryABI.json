@@ -1,0 +1,428 @@
+[
+		{
+			"inputs": [],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "providerAddress",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "did",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "role",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "ProviderRegistered",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "providerAddress",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "ProviderUpdated",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "providerAddress",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				}
+			],
+			"name": "ProviderVerified",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "admin",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "",
+					"type": "string"
+				}
+			],
+			"name": "didToAddress",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getAllProviders",
+			"outputs": [
+				{
+					"internalType": "address[]",
+					"name": "",
+					"type": "address[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_providerAddress",
+					"type": "address"
+				}
+			],
+			"name": "getProvider",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "string",
+							"name": "did",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "name",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "role",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "licenseId",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "hospitalName",
+							"type": "string"
+						},
+						{
+							"internalType": "address",
+							"name": "walletAddress",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "registrationDate",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "isActive",
+							"type": "bool"
+						},
+						{
+							"internalType": "bool",
+							"name": "isVerified",
+							"type": "bool"
+						}
+					],
+					"internalType": "struct ProviderRegistry.Provider",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "_did",
+					"type": "string"
+				}
+			],
+			"name": "getProviderByDID",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "string",
+							"name": "did",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "name",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "role",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "licenseId",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "hospitalName",
+							"type": "string"
+						},
+						{
+							"internalType": "address",
+							"name": "walletAddress",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "registrationDate",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "isActive",
+							"type": "bool"
+						},
+						{
+							"internalType": "bool",
+							"name": "isVerified",
+							"type": "bool"
+						}
+					],
+					"internalType": "struct ProviderRegistry.Provider",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getTotalProviders",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_providerAddress",
+					"type": "address"
+				}
+			],
+			"name": "isProviderRegistered",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_providerAddress",
+					"type": "address"
+				}
+			],
+			"name": "isProviderVerified",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "providerAddresses",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"name": "providers",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "did",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "name",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "role",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "licenseId",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "hospitalName",
+					"type": "string"
+				},
+				{
+					"internalType": "address",
+					"name": "walletAddress",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "registrationDate",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "isActive",
+					"type": "bool"
+				},
+				{
+					"internalType": "bool",
+					"name": "isVerified",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "_did",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_name",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_role",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_licenseId",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_hospitalName",
+					"type": "string"
+				}
+			],
+			"name": "registerProvider",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_providerAddress",
+					"type": "address"
+				}
+			],
+			"name": "verifyProvider",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
